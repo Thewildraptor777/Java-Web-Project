@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Music Player</title>
+    <script src="https://kit.fontawesome.com/fb27aa5521.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="icons\icon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="data"></div>
+    <section id="playlist-section">
+
+        <p id="playlist-selection">
+
+
+
+
+        </p>
+    </section>
+    <section id="playlist-songs">
+        <h1 class="tracks-header">
+        </h1>
+        <p class="tracks-header" id="total-songs">total number of songs:
+        </p>
+        <div id="playlist-container">
+            <ol id="playlist-tracks">
+              
+            </ol>
+        </div>
+    </section>
+    <section id="music-section">
+        <div class="horizontal" id="music-info">
+            <img id="music-image" src="">
+
+            <div>
+                <p id="title" class="music-p">Title:
+                </p>
+
+
+
+                <p id="artist" class="music-p"> Artist: </p>
+                <p id="queue">todo</p>
+            </div>
+
+        </div>
+        <div>
+            <section id="controls-section">
+                <audio preload="metadata" id="audio"
+                    src="https://cdn.glitch.global/cd6fb2ed-715d-4dc3-ac15-e67735a547a2/01-Mundane%20cityscape.mp3?v=1685491608165">
+                </audio>
+                <div class="button-box">
+                    <section id="main-button">
+                        <div class="button-div"> <button onclick="prev()" class="buttons"><i
+                                    class="fa-solid fa-backward-step"></i></button>
+                        </div>
+
+                        <div class="button-div" id="play-button-div">
+                            <button id="play-button" class="buttons"><i class='fa-solid fa-play'></i></button>
+                        </div>
+                        <div class="clear" id="pause-button-div">
+                            <button id="pause-button" class="buttons"><i class="fa-solid fa-pause"></i></button>
+                        </div>
+                        <div class="button-div"> <button class="buttons" onclick="next()"><i
+                                    class="fa-solid fa-forward-step"></i></button>
+                        </div>
+                    </section>
+                    <div class="spacer">
+                        <button id="shuffle-button" class="buttons"><i id="shuffle-icon"
+                                class="fa-solid fa-shuffle"></i></button>
+
+                        <button id="loop-button" class="buttons"><i id="loop-icon"
+                                class="fa-solid fa-repeat"></i></button>
+
+                    </div>
+                </div>
+
+            </section>
+            <p id="no-more"></p>
+            <p id="length" class="music-p"> Length:</p>
+
+        </div>
+    </section>
+
+</body>
+<script>
+
+</script>
+<script src="script.js"></script>
+
+</html>

@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>   
+  </tr>
+  <tr th:each="slime : ${slimes}">
+    <td th:text="${slime.id}">Id</td>
+    <td th:text="${slime.title}">Title</td>   
+  </tr>
+</table>

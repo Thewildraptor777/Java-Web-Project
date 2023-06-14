@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.example.App",
+            "projectName": "demo"
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "demo.src.main.java.com.example.App",
+            "projectName": "Java Web Project_a77f06e7"
+        },
+        {
+            "type": "java",
+            "name": "clearConsole",
+            "request": "launch",
+            "mainClass": "clearConsole",
+            "projectName": "Java Web Project_a77f06e7"
+        },
+        {
+            "type": "java",
+            "name": "clear",
+            "request": "launch",
+            "mainClass": "clear",
+            "projectName": "Java Web Project_a77f06e7"
+        },
+        {
+            "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "com.raptor.music.app.Application",
+            "projectName": "music"
+        },
+        {
+            "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "com.raptor.music.Application",
+            "projectName": "music"
+        },
+        {
+            "type": "java",
+            "name": "string",
+            "request": "launch",
+            "mainClass": "string",
+            "projectName": "Java Web Project_a77f06e7"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        }
+    ]
+}
