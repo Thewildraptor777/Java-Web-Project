@@ -10,6 +10,7 @@ let currentIndex = 0;
 let shuffle = false;
 let loop = false;
 let out = false;
+
 function play() {
     audio.src = links[currentIndex];
     audio.play();
@@ -148,14 +149,12 @@ audio.onended = () => {
     next();
 };
 
-window.onload = () => {
+document.onload = () => {
   
+     audio.src=links[currentIndex]
 
-  audio.src=links[currentIndex]
   updateInfo();
     length()
+   document.getElementById("total-songs").innerHTML = "Total number of songs:" + playlistData.length.toString()
 
-
-   
 };
-document.getElementById("total-songs").innerHTML = "Total number of songs:" + playlistData.length.toString()
