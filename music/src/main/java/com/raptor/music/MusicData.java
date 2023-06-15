@@ -4,12 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class MusicData {
-    public static void main(String[] args) {
-
-    }
     public static ArrayList<String> data(String playlist){        
-        System.out.println(name(playlist));
-
         return name(playlist);
     }
     private static ArrayList<String> name(String playlist) {
