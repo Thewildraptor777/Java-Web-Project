@@ -4,20 +4,22 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-@Service
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicData {
-    public static String data(String playlist) {
+    @Value("${spring.datasource.url}")
+    private String url;
+    @Value("${spring.datasource.username}")
+    private String user;
+    @Value("${spring.datasource.password}")
+    private String password;
+    
+    public String data(String playlist) {
         return name(playlist);
     }
-    @Value("${spring.datasource.url}")    
-    private static String springUrl;
-    @Value("${spring.datasource.username}")    
-    private static String springUser;
-    @Value("${spring.datasource.passwrod}")    
-    private static String SpringPassword;
 
-    private static String name(String playlist) {
+    private String name(String playlist) {
         ArrayList<String> titles = new ArrayList<String>();
         ArrayList<String> links = new ArrayList<String>();
         ArrayList<Integer> ids = new ArrayList<Integer>();
@@ -25,10 +27,7 @@ public class MusicData {
         ArrayList<String> artists = new ArrayList<String>();
         ArrayList<String> masterArrayList = new ArrayList<String>();
 
-        String url = springUrl; // Replace "mydatabase" with your database name
-        String user = springUser; // Replace "root" with your MySQL username
-        String password = SpringPassword; // Replace "mypassword" with your MySQL password
-
+      
         // Establish database connection
         try (Connection conn = DriverManager.getConnection(url, user, password)) {
             // Create SQL statement
@@ -68,9 +67,9 @@ public class MusicData {
     private static String StringArraytoString(ArrayList<String> list) {
         String text = "";
         for (int i = 0; i < list.size(); i++) {
-            text += '\"'+list.get(i)+ '\"' + ",";
+            text += '\"' + list.get(i) + '\"' + ",";
         }
-                text=deleteCommma(text);
+        text = deleteCommma(text);
 
         return text;
     }
@@ -78,19 +77,20 @@ public class MusicData {
     private static String IntegerArraytoString(ArrayList<Integer> list) {
         String text = "";
         for (int i = 0; i < list.size(); i++) {
-            text += '\"'+ list.get(i).toString() + '\"'+ ",";
+            text += '\"' + list.get(i).toString() + '\"' + ",";
         }
-        text=deleteCommma(text);
+        text = deleteCommma(text);
         return text;
     }
+
     private static String deleteCommma(String str) {
-    if (str == null || str.length() < 2) {
-        return str; // Return the original string if it is null or shorter than 2 characters
-    } else {
-        int index = str.length() - 1; // Calculate the index of the second to last character
-        String firstPart = str.substring(0, index);
-        String secondPart = str.substring(index + 1);
-        return firstPart + secondPart; // Concatenate the two parts
+        if (str == null || str.length() < 2) {
+            return str; // Return the original string if it is null or shorter than 2 characters
+        } else {
+            int index = str.length() - 1; // Calculate the index of the second to last character
+            String firstPart = str.substring(0, index);
+            String secondPart = str.substring(index + 1);
+            return firstPart + secondPart; // Concatenate the two parts
+        }
     }
-}
 }

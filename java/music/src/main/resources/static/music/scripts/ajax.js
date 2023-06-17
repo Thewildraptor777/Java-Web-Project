@@ -1,7 +1,8 @@
+var pathname = window.location.pathname; 
 $(document).ready(function() {
     // Make an AJAX request to the /data endpoint
     $.ajax({
-      url: '/data',
+      url: pathname+'/data',
       type: 'GET',
       dataType: 'json',
       success: function(data) {
