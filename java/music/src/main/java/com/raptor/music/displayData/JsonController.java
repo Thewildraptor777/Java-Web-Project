@@ -14,7 +14,7 @@ public class JsonController {
     @Autowired
     private MusicData musicData;
     
-    @GetMapping("{name}/data")
+    @GetMapping("/data")
     public ResponseEntity<String> getJson() throws IOException {
 String playlistData = musicData.data("slime");
         String json = playlistData;
