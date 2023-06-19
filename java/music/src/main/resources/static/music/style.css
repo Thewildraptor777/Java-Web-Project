@@ -16,8 +16,16 @@ img {
 #playlist-section {
     background-color: rgb(155, 155, 155);
     height: 10vh;
-    width: 100vw;
+    width: 70vw;
     overflow: hidden;
+}
+#user-section{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30vw;
+    height: 10vh;
+    background-color: brown;
 }
 
 #music-section {

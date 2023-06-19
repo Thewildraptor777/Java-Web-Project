@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Music Player</title>
     <script src="https://kit.fontawesome.com/fb27aa5521.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="music/style.css">
     <link rel="icon" href="static\icons\icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -18,10 +18,14 @@
 
         <p id="playlist-selection">
 
-<p th:text="${test}"></p>
 
 
         </p>
+    </section>
+    <section id="user-section">
+        <p th:text="${test}"></p>
+        <p id="wronguser" th:text="${wronguser}"></p>
+<p id="usercreation" th:text="${usercreation}"></p>
     </section>
     <section id="playlist-songs">
         <h1 class="tracks-header">
@@ -30,7 +34,7 @@
         </p>
         <div id="playlist-container">
             <ol id="playlist-tracks">
-          
+
             </ol>
         </div>
     </section>
@@ -66,7 +70,7 @@
                         <div class="clear" id="pause-button-div">
                             <button id="pause-button" class="buttons"><i class="fa-solid fa-pause"></i></button>
                         </div>
-                        <div class="button-div"> <button class="buttons" ><i
+                        <div class="button-div"> <button class="buttons"><i
                                     class="fa-solid fa-forward-step"></i></button>
                         </div>
                     </section>
@@ -87,6 +91,7 @@
         </div>
     </section>
 
-</body><script src="styling.js"></script>
-
+</body>
+<script src="music/styling.js"></script>
+<script src="music/user.js"></script>
 </html>

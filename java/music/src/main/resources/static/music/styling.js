@@ -10,6 +10,8 @@ const loopIcon = document.getElementById("loop-icon");
 playButton.addEventListener("click", () => {
     pauseButtonDiv.classList.remove("clear");
     playButtonDiv.classList.add("clear");
+    pauseButtonDiv.classList.add("button-div");
+
 });
 
 pauseButton.addEventListener("click", () => {
