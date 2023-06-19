@@ -29,14 +29,15 @@ public class userSql {
       } finally {
          try {
             if (stmt != null)
-               conn.close();
+               stmt.close();
          } catch (SQLException se) {
+            // handle the exception
          }
          try {
             if (conn != null)
                conn.close();
          } catch (SQLException se) {
-            se.printStackTrace();
+            // handle the exception
          }
       }
    }
