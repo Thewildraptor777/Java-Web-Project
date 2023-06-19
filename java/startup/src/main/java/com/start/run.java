@@ -6,15 +6,15 @@ import java.io.File;
 
 public class run {
     public static void main(String[] args) throws Exception {
-        Thread t1 = new Thread(() -> create("C:\\Users\\Thewi\\Desktop\\Sage - Poe.lnk"));
+        //Thread t1 = new Thread(() -> create("C:\\Users\\Thewi\\Desktop\\Sage - Poe.lnk"));
         Thread t2 = new Thread(() -> create("C:\\Users\\Thewi\\Desktop\\XAMPP Control Panel.lnk"));
         Thread t3 = new Thread(() -> create("C:\\Users\\Thewi\\Desktop\\Visual Studio Code.lnk"));
 
-        t1.start();
+        //t1.start();
         t2.start();
         t3.start();
 
-        t1.join();
+       // t1.join();
         t2.join();
         t3.join();
     }
