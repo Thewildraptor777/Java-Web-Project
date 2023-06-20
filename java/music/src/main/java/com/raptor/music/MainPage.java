@@ -9,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.raptor.music.user.PasswordUtils;
+import com.raptor.music.user.userSql;
+
 @Controller
 public class MainPage {
 

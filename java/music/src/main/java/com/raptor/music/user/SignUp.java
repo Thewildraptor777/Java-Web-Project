@@ -1,4 +1,4 @@
-package com.raptor.music;
+package com.raptor.music.user;
 
 import java.util.ArrayList;
 import java.util.Arrays;

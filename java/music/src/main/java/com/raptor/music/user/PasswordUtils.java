@@ -1,4 +1,4 @@
-package com.raptor.music;
+package com.raptor.music.user;
 
 import java.security.SecureRandom;
 import org.mindrot.jbcrypt.BCrypt;

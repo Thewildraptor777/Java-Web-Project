@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class Music {
     @GetMapping("/playlists/{playlist}")
     public String playlist(Model model, @PathVariable("playlist") String playlist) {
-        System.out.println(read(playlist));
-       
-        return "index.html";
+        String data=read(playlist);
+       model.addAttribute("data",data);
+        return "playlist.html";
     }
 
     public static String read(String playlist) {
