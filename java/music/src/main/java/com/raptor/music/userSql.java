@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class userSql {
-   public static void write(String user) {
+   public static void write(String user,String password) {
       Connection conn = null;
       Statement stmt = null;
       try {
          try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
          } catch (Exception e) {
             System.out.println(e);
          }
          conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/users", "Tyler", "Blackrobin7");
          stmt = (Statement) conn.createStatement();
-         String query = "INSERT INTO data " + "VALUES (NULL, '" + user + "','temp', 'tbd')";
+         String query = "INSERT INTO data " + "VALUES (NULL, '" + user + "','"+password+"', 'tbd')";
          stmt.executeUpdate(query);
          System.out.println(user + " Added");
 
@@ -42,11 +42,12 @@ public class userSql {
       }
    }
 
-   public static String read() {
-      String data = "";
+   public static String[] read() {
+      String userdata = "";
+      String passwordData="";
       try {
          // create our mysql database connection
-         String myDriver = "com.mysql.jdbc.Driver";
+         String myDriver = "com.mysql.cj.jdbc.Driver";
          String myUrl = "jdbc:mysql://localhost/users";
          Class.forName(myDriver);
          Connection conn = DriverManager.getConnection(myUrl, "Tyler", "Blackrobin7");
@@ -64,15 +65,20 @@ public class userSql {
          // iterate through the java resultset
          while (rs.next()) {
             String username = rs.getString("username");
-
+            String password=rs.getString("password");
             // print the results
-            data = data + username + "  ";
+            userdata = userdata + username + "  ";
+            passwordData=passwordData+password+"  ";
          }
          st.close();
       } catch (Exception e) {
          System.err.println("Got an exception! ");
          System.err.println(e.getMessage());
-      }
-      return data;
+      }  
+      String[] finalArray={ userdata, passwordData};
+     
+      
+     
+      return finalArray;
    }
 }

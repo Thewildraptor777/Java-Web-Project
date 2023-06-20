@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class Singup {
+public class SignUp {
     @GetMapping("/")
     public String userpage(Model model) {
-        return "user.html";
+        return "login.html";
     }
 
     @GetMapping("/signup")
@@ -23,21 +23,19 @@ public class Singup {
     }
 
     @PostMapping("/submit-form")
-    public String submitForm(Model model, @RequestParam("name") String name) {
+    public String submitForm(Model model, @RequestParam("name") String name,@RequestParam("pass") String password) {
         // Retrieve the list of user names from the database
-        String userListString = userSql.read();
+        String userListString = userSql.read()[0];
         List<String> userList = new ArrayList<String>(Arrays.asList(userListString.split("  ")));
 
         // Add the new user name to the list
         userList.add(name);
-
+        password=PasswordUtils.hashPassword(password);
         // Write the updated list of user names to the database
-        userSql.write(name);
+        userSql.write(name,password);
 
-        // Add the "location" attribute to the model
-        model.addAttribute("location", name);
 
-        // Redirect to the "redirect.html" template
         return "redirect.html";
     }
+       
 }
