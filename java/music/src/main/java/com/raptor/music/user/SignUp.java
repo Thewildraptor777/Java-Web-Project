@@ -14,28 +14,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SignUp {
     @GetMapping("/")
     public String userpage(Model model) {
-        return "login.html";
+        return "user/login.html";
     }
 
     @GetMapping("/signup")
     public String page(Model model) {
-        return "user.html";
+        return "user/user.html";
     }
 
     @PostMapping("/submit-form")
-    public String submitForm(Model model, @RequestParam("name") String name,@RequestParam("pass") String password) {
+    private String submitForm(Model model, @RequestParam("name") String name,@RequestParam("pass") String password) {
         // Retrieve the list of user names from the database
         String userListString = userSql.read()[0];
         List<String> userList = new ArrayList<String>(Arrays.asList(userListString.split("  ")));
-
-        // Add the new user name to the list
+if(userList.contains(name)){
+model.addAttribute("result", "user exists");
+}else{
+     // Add the new user name to the list
         userList.add(name);
         password=PasswordUtils.hashPassword(password);
         // Write the updated list of user names to the database
         userSql.write(name,password);
 
+}
+       
 
-        return "redirect.html";
+        return "user/redirect.html";
     }
        
 }

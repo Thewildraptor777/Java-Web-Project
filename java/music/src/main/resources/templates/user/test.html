@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script th:inline="javascript">
+    function wait3Seconds() {
+        const startTime = new Date().getTime();
+        let currentTime = startTime;
+        while (currentTime - startTime < 5000) {
+            currentTime = new Date().getTime();
+        }
+    }
+    var jsVar = [[${ check }]];
+    console.log(jsVar);
+    var name = [[${ test }]];
+    console.log(name);
+    if (jsVar == true) {
+        window.location.replace("/music/" + name)
+    } else {
+        document.write("please eneter correct user details")
+        wait3Seconds()
+        window.location.replace("/")
+    }
+
+    // Check if a key exists in local storage
+    if (localStorage.getItem('user') !== null) {
+        // The key exists in local storage
+        console.log('myKey exists in local storage.');
+    } else {
+        // The key does not exist in local storage
+        localStorage.setItem('user', name)
+        console.log('added');
+
+    }
+</script>
+
+</html>
