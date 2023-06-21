@@ -14,8 +14,8 @@ import com.raptor.music.user.userSql;
 
 @Controller
 public class MainPage {
-    @GetMapping("/music/{name}")
-    public String mainpage(Model model, @PathVariable("name") String user,@RequestParam("playlist") String playlist) {
+    @GetMapping("/user/{name}")
+    public String mainpage(Model model, @PathVariable("name") String user, @RequestParam("playlist") String playlist) {
         String userListString = userSql.read()[0];
 
         //
@@ -24,8 +24,9 @@ public class MainPage {
         List<String> userList = new ArrayList<String>(Arrays.asList(s.split("  ")));
 
         if (userList.indexOf(user) != -1) {
-model.addAttribute("playlist",playlist);
-model.addAttribute("name", user);
+            model.addAttribute("playlist", playlist);
+            model.addAttribute("name", user);
+
         } else {
 
             model.addAttribute("wronguser", "true");

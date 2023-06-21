@@ -4,11 +4,11 @@ var playButton = document.getElementById('play-button');
 var pauseButton = document.getElementById('pause-button');
 
 // Add event listeners to the buttons
-playButton.addEventListener('click', function() {
+playButton.addEventListener('click', function () {
   togglePlayPauseButtons();
 });
 
-pauseButton.addEventListener('click', function() {
+pauseButton.addEventListener('click', function () {
   togglePlayPauseButtons();
 });
 
@@ -23,7 +23,7 @@ const shuffleButton = document.getElementById("shuffleButton");
 const shuffleIcon = document.getElementById("shuffle-icon");
 
 // Add a click event listener to the button
-shuffleButton.addEventListener("click", function() {
+shuffleButton.addEventListener("click", function () {
   // Toggle the "active" class on the icon
   shuffleIcon.classList.toggle("active");
 });
@@ -33,7 +33,7 @@ const loopButton = document.getElementById("loopButton");
 const loopIcon = document.getElementById("loop-icon");
 
 // Add a click event listener to the button
-loopButton.addEventListener("click", function() {
+loopButton.addEventListener("click", function () {
   // Toggle the "active" class on the icon
   loopIcon.classList.toggle("active");
 });
