@@ -1,0 +1,191 @@
+/* Add your custom CSS rules here */
+
+#playlist-tracks li {
+    cursor: pointer;
+  }
+  
+  #playlist-tracks li.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  #music-image {
+    border: 1px solid #dee2e6;
+  }
+  
+  .music-p {
+    margin-bottom: 0;
+  }
+  
+  .controls-section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .buttons {
+    font-size: 20px;
+  }
+  
+  #no-more {
+    margin-bottom: 0;
+  }
+  
+  .tracks-header {
+    margin-bottom: 1rem;
+  }
+  
+  /* Set height of audio player to 0 to hide it */
+  #audio {
+    height: 0;
+    visibility: hidden;
+  }
+  
+  /* Style the audio player controls */
+  button:focus {
+    outline: none;
+  }
+  
+  button:active {
+    outline: none;
+  }
+  
+  button::-moz-focus-inner {
+    border: 0;
+  }
+  
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  button[disabled] {
+    cursor: default;
+  }
+  
+  button[disabled]:hover {
+    background-color: transparent;
+  }
+  
+  button[type="button"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  
+  .btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    color: #fff;
+    background-color: #5a6268;
+    border-color: #545b62;
+  }
+  
+  .btn-secondary:focus,
+  .btn-secondary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .btn-primary:focus,
+  .btn-primary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.5);
+  }
+  
+  .btn-outline-secondary {
+    color: #6c757d;
+    background-color: transparent;
+    background-image: none;
+    border-color: #6c757d;
+  }
+  
+  .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-outline-secondary:focus,
+  .btn-outline-secondary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
+  }
+  
+  .btn-outline-primary {
+    color: #007bff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-outline-primary:focus,
+  .btn-outline-primary.focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Hide the pause button by default */
+  #pause-button-div {
+    display: none;
+  }
+  
+  /* Show the pause button and hide the play button when the audio is playing */
+  .audio-playing #play-button-div {
+    display: none;
+  }
+  
+  .audio-playing #pause-button-div {
+    display: block;
+  }
+
+  #shuffle-icon.active {
+    color: #007bff;
+  }
+ 
+  #shuffleButton {
+    background-color: #fff;
+  }
+  #shuffleButton:hover{
+    color: #6c757d;
+  }
+  #shuffleButton:focus {
+    outline: none;
+    box-shadow: none;
+  } 
+  #loop-icon.active {
+    color: #007bff;
+  }
+  
+  #loopButton {
+    background-color: #fff;
+  }
+  #loopButton:hover{
+    color: #6c757d;
+  }
+  #loopButton:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  #play-button,#pause-button{
+    width:50%;
+  }

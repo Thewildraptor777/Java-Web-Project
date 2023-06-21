@@ -5,20 +5,24 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class Music {
-    @GetMapping("/playlists/{playlist}")
-    public String playlist(Model model, @PathVariable("playlist") String playlist) {
-        String data = read(playlist);
-        model.addAttribute("data", data);
-        return "playlist.html";
-    }
+ @GetMapping("/playlists/{playlist}")
+@ResponseBody
+public Map<String, String> playlist(@PathVariable("playlist") String playlist) {
+    String data = read(playlist);
+    Map<String, String> response = new HashMap<>();
+    response.put("data", data);
+    return response;
+}
 
     public static String read(String playlist) {
         ArrayList<String> finalArray = new ArrayList<String>();
@@ -54,10 +58,10 @@ public class Music {
                 String title = rs.getString("title");
                 String artist = rs.getString("artist");
                 idArray.add(String.valueOf(id));
-                linkArray.add(link);
-                imageArray.add(image);
-                titleArray.add(title);
-                artistArray.add(artist);
+                linkArray.add('\"'+link+'\"');
+                imageArray.add('\"'+image+'\"');
+                titleArray.add('\"'+title+'\"');
+                artistArray.add('\"'+artist+'\"');
 
             }
             st.close();
