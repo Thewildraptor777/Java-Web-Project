@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class userSql {
-   public static void write(String user,String password) {
+   public static void write(String user, String password) {
       Connection conn = null;
       Statement stmt = null;
       try {
@@ -18,7 +18,7 @@ public class userSql {
          }
          conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/users", "Tyler", "Blackrobin7");
          stmt = (Statement) conn.createStatement();
-         String query = "INSERT INTO data " + "VALUES (NULL, '" + user + "','"+password+"', 'tbd')";
+         String query = "INSERT INTO data " + "VALUES (NULL, '" + user + "','" + password + "', 'tbd')";
          stmt.executeUpdate(query);
          System.out.println(user + " Added");
 
@@ -44,7 +44,7 @@ public class userSql {
 
    public static String[] read() {
       String userdata = "";
-      String passwordData="";
+      String passwordData = "";
       try {
          // create our mysql database connection
          String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -65,20 +65,18 @@ public class userSql {
          // iterate through the java resultset
          while (rs.next()) {
             String username = rs.getString("username");
-            String password=rs.getString("password");
+            String password = rs.getString("password");
             // print the results
             userdata = userdata + username + "  ";
-            passwordData=passwordData+password+"  ";
+            passwordData = passwordData + password + "  ";
          }
          st.close();
       } catch (Exception e) {
          System.err.println("Got an exception! ");
          System.err.println(e.getMessage());
-      }  
-      String[] finalArray={ userdata, passwordData};
-     
-      
-     
+      }
+      String[] finalArray = { userdata, passwordData };
+
       return finalArray;
    }
 }

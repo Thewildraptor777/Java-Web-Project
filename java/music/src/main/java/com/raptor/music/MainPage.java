@@ -23,10 +23,10 @@ public class MainPage {
         List<String> userList = new ArrayList<String>(Arrays.asList(s.split("  ")));
 
         if (userList.indexOf(user) != -1) {
-          
+
         } else {
 
-                model.addAttribute("wronguser", "true");
+            model.addAttribute("wronguser", "true");
 
         }
         return "index.html";

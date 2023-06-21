@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="spacer/style.css">
     <link rel="icon" href="spacer\icons\icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   
+
 </head>
 
 <body>
     <div id="data"></div>
     <section id="playlist-section">
-<a href="newList">new playlist</a>
+        <a href="newList">new playlist</a>
         <p id="playlist-selection">
 
 
@@ -26,7 +26,7 @@
     <section id="user-section">
         <p th:text="${test}"></p>
         <p id="wronguser" th:text="${wronguser}"></p>
-<p id="usercreation" th:text="${usercreation}"></p>
+        <p id="usercreation" th:text="${usercreation}"></p>
     </section>
     <section id="playlist-songs">
         <h1 class="tracks-header">
@@ -95,16 +95,18 @@
 </body>
 <script src="spacer/styling.js"></script>
 <script src="spacer/user.js"></script>
-<script src="spacer/local.js"></script><script>
+<script src="spacer/local.js"></script>
+<script>
 
     // Check if a key exists in local storage
-if(localStorage.getItem('user') !== null) {
-  // The key exists in local storage
-  console.log('myKey exists in local storage.');
-} else {
-  // The key does not exist in local storage
-  console.log('myKey does not exist in local storage.');
-  window.location.replace('/')
-}
+    if (localStorage.getItem('user') !== null) {
+        // The key exists in local storage
+        console.log('myKey exists in local storage.');
+    } else {
+        // The key does not exist in local storage
+        console.log('myKey does not exist in local storage.');
+        window.location.replace('/')
+    }
 </script>
+
 </html>

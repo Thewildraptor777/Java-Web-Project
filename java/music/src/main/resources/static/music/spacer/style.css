@@ -19,7 +19,8 @@ img {
     width: 70vw;
     overflow: hidden;
 }
-#user-section{
+
+#user-section {
     position: absolute;
     top: 0;
     right: 0;

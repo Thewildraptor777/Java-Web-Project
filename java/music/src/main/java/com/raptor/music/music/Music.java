@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class Music {
     @GetMapping("/playlists/{playlist}")
     public String playlist(Model model, @PathVariable("playlist") String playlist) {
-        String data=read(playlist);
-       model.addAttribute("data",data);
+        String data = read(playlist);
+        model.addAttribute("data", data);
         return "playlist.html";
     }
 
@@ -65,11 +65,11 @@ public class Music {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-finalArray.add(idArray.toString());
-finalArray.add(linkArray.toString());
-finalArray.add(imageArray.toString());
-finalArray.add(titleArray.toString());
-finalArray.add(artistArray.toString());
+        finalArray.add(idArray.toString());
+        finalArray.add(linkArray.toString());
+        finalArray.add(imageArray.toString());
+        finalArray.add(titleArray.toString());
+        finalArray.add(artistArray.toString());
         return finalArray.toString();
     }
 }
