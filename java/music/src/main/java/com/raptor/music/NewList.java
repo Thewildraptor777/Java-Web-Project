@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NewList {
     @GetMapping("/newList")
     public String list() {
-        return "playlist.html";
+        return "newplaylist.html";
 
     }
 }

@@ -10,13 +10,7 @@
 <body>
 </body>
 <script th:inline="javascript">
-    function wait3Seconds() {
-        const startTime = new Date().getTime();
-        let currentTime = startTime;
-        while (currentTime - startTime < 5000) {
-            currentTime = new Date().getTime();
-        }
-    }
+    
     var jsVar = [[${ check }]];
     console.log(jsVar);
     var name = [[${ test }]];
@@ -25,7 +19,6 @@
         window.location.replace("/user/" + name + "?playlist=")
     } else {
         document.write("please eneter correct user details")
-        wait3Seconds()
         window.location.replace("/")
     }
 

@@ -19,9 +19,6 @@
             <div class="col-md-2">
                 <select class="form-select" id="playlist-select" aria-label="Select playlist">
                     <option selected>Select Playlist</option>
-                    <option value="slime">Slime</option>
-                    <option value="playlist2">Playlist 2</option>
-                    <option value="playlist3">Playlist 3</option>
                 </select>
             </div>
             <div class="col-md-4">
@@ -107,12 +104,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
     <script th:inline="javascript">
         var playlist = [[${ playlist }]];
+        var user = [[${ name }]]
+        /////////////////////////////////////////////////////////////////////////////////////
+        const url = `/user/${user}/data`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const encryptedData = data.data;
+                // do something with the encrypted data, e.g. display it on the page
+                const str = encryptedData;
+                const arr = str.split("||");
+                console.log(arr); // Output: ["slime", "tracks"]
+                const select = document.getElementById("playlist-select");
+                for (const item of arr) {
+                    const option = document.createElement("option");
+                    option.value = item;
+                    option.text = item;
+                    select.appendChild(option);
+                }
+            })
+            .catch(error => console.error(error));
     </script>
     <script src="../music/setup/styling.js"></script>
     <script src="../music/setup/user.js"></script>
     <script src="../music/setup/local.js"></script>
     <script src="../music/setup/playlist.js"></script>
-    <script src="../music/music.js"></script>
 
 </body>
 

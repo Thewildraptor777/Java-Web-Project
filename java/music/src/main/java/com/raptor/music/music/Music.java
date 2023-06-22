@@ -15,14 +15,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class Music {
- @GetMapping("/playlists/{playlist}")
-@ResponseBody
-public Map<String, String> playlist(@PathVariable("playlist") String playlist) {
-    String data = read(playlist);
-    Map<String, String> response = new HashMap<>();
-    response.put("data", data);
-    return response;
-}
+
+    @GetMapping("/playlists/")
+    @ResponseBody
+    public Map<String, String> test() {
+        String data = "\"       \"";
+        Map<String, String> response = new HashMap<>();
+        response.put("data", data);
+        return response;
+    }
+
+    @GetMapping("/playlists/{playlist}")
+    @ResponseBody
+    public Map<String, String> playlist(@PathVariable("playlist") String playlist) {
+        String data = read(playlist);
+        Map<String, String> response = new HashMap<>();
+        response.put("data", data);
+        return response;
+    }
 
     public static String read(String playlist) {
         ArrayList<String> finalArray = new ArrayList<String>();
@@ -58,10 +68,10 @@ public Map<String, String> playlist(@PathVariable("playlist") String playlist) {
                 String title = rs.getString("title");
                 String artist = rs.getString("artist");
                 idArray.add(String.valueOf(id));
-                linkArray.add('\"'+link+'\"');
-                imageArray.add('\"'+image+'\"');
-                titleArray.add('\"'+title+'\"');
-                artistArray.add('\"'+artist+'\"');
+                linkArray.add('\"' + link + '\"');
+                imageArray.add('\"' + image + '\"');
+                titleArray.add('\"' + title + '\"');
+                artistArray.add('\"' + artist + '\"');
 
             }
             st.close();

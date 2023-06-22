@@ -15,29 +15,30 @@ $.ajax({
   success: function (response) {
     // Parse the JSON string and extract the data
     var data = JSON.parse("" + response.data);
-    var numbers = data[0];
-    var mp3Urls = data[1];
-    var imageUrls = data[2];
-    var strings = data[3];
-
+    var ids = data[0];
+    var links = data[1];
+    var images = data[2];
+    var titles = data[3];
+    var artists = data[4];
     // Do something with the extracted data
     var playlistdata = [];
-    playlistdata.push(numbers);
-    playlistdata.push(mp3Urls);
-    playlistdata.push(imageUrls);
-    playlistdata.push(strings);
+    playlistdata.push(ids);
+    playlistdata.push(links);
+    playlistdata.push(images);
+    playlistdata.push(titles);
+    playlistdata.push(artists);
     console.log(playlistdata)
+    //////////////////////////////////////////
     let currentIndex = 0;
     let out = false;
 
     const audio = document.getElementById("audio");
-
+    const playlistTracks = document.getElementById("playlist-tracks")
     let linksdata = playlistdata[1];
     audio.src = linksdata[currentIndex];
     // 
-    const playlistTracks = document.getElementById("playlist-tracks")
     for (i = 0; i < playlistdata[0].length; i++) {
-      playlistTracks.innerHTML += "<li>" + playlistdata[3][i] + "</li>"
+      playlistTracks.innerHTML += "<li>" + "<div>" + "<img src='" + playlistdata[2][i] + "'>" + "<div>" + "<span>" + playlistdata[3][i] + "</span>" + "<span>" + playlistdata[4][i] + "</span>" + "</div>" + "</div>" + "</li>"
     }
   },
 });

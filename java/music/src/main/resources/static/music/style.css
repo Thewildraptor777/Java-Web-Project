@@ -75,21 +75,17 @@ button[type="button"] {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  color: #6c757d;
+  background-color: #d9dcde;
+  border-color: #d9dcde;
 }
 
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
+  color: #6c757d;
+  background-color: #acb0b2;
+  border-color: #acb0b2;
 }
 
-.btn-secondary:focus,
-.btn-secondary.focus {
-  box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
-}
 
 .btn-primary {
   color: #fff;
@@ -105,7 +101,7 @@ button[type="button"] {
 
 .btn-primary:focus,
 .btn-primary.focus {
-  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.5);
+  box-shadow: none;
 }
 
 .btn-outline-secondary {
@@ -121,10 +117,6 @@ button[type="button"] {
   border-color: #6c757d;
 }
 
-.btn-outline-secondary:focus,
-.btn-outline-secondary.focus {
-  box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
-}
 
 .btn-outline-primary {
   color: #007bff;
@@ -163,7 +155,9 @@ button[type="button"] {
 }
 
 #shuffleButton {
-  background-color: #fff;
+  background-color: #d9dcde;
+  outline: none;
+  border: 0;
 }
 
 #shuffleButton:hover {
@@ -180,7 +174,9 @@ button[type="button"] {
 }
 
 #loopButton {
-  background-color: #fff;
+  background-color: #d9dcde;
+  outline: none;
+  border: 0;
 }
 
 #loopButton:hover {
@@ -194,12 +190,13 @@ button[type="button"] {
 
 #play-button,
 #pause-button {
-  width: 50%;
+  width: 40px;
 }
 
 li {
-  padding: 2px;
-
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
 }
 
 li:hover {
@@ -212,4 +209,19 @@ li:hover {
   border-radius: 5px;
   overflow-y: scroll;
   height: 72vh;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+li div div {
+  display: flex;
+  flex-direction: column;
+}
+
+li div {
+  display: flex;
+  flex-direction: row;
 }

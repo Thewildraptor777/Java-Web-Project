@@ -17,6 +17,11 @@ public class SignUp {
         return "user/login.html";
     }
 
+    @GetMapping("/{name}")
+    public String redirect(Model Model) {
+        return "user/redirect.html";
+    }
+
     @GetMapping("/signup")
     public String page(Model model) {
         return "user/user.html";

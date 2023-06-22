@@ -15,7 +15,8 @@ import com.raptor.music.user.userSql;
 @Controller
 public class MainPage {
     @GetMapping("/user/{name}")
-    public String mainpage(Model model, @PathVariable("name") String user, @RequestParam("playlist") String playlist) {
+    public String mainpage(Model model, @PathVariable("name") String user,
+            @RequestParam(value = "playlist", required = false, defaultValue = "") String playlist) {
         String userListString = userSql.read()[0];
 
         //
