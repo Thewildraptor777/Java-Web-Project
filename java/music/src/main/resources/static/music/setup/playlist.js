@@ -8,7 +8,7 @@ playlistSelect.addEventListener("change", function () {
   window.location.search = urlParams.toString();
 });
 
-
+if(playlist!=""){
 $.ajax({
   url: "/playlists/" + playlist,
   dataType: "json",
@@ -41,4 +41,4 @@ $.ajax({
       playlistTracks.innerHTML += "<li>" + "<div>" + "<img src='" + playlistdata[2][i] + "'>" + "<div>" + "<span>" + playlistdata[3][i] + "</span>" + "<span>" + playlistdata[4][i] + "</span>" + "</div>" + "</div>" + "</li>"
     }
   },
-});
+});}

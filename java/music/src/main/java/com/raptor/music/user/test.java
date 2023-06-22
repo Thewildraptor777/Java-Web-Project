@@ -14,8 +14,8 @@ public class test {
 
     @PostMapping("/test")
     public String testpage(Model model, @RequestParam("name") String name, @RequestParam("password") String pass) {
-        String userListString = userSql.read()[0];
-        String pList = userSql.read()[1];
+        String userListString = UserSql.read()[0];
+        String pList = UserSql.read()[1];
         List<String> passList = new ArrayList<String>(Arrays.asList(pList.split("  ")));
 
         //

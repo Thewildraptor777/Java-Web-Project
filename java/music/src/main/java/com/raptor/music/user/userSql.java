@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class userSql {
+public class UserSql {
    public static void write(String user, String password) {
       Connection conn = null;
       Statement stmt = null;

@@ -30,7 +30,7 @@ public class SignUp {
     @PostMapping("/submit-form")
     private String submitForm(Model model, @RequestParam("name") String name, @RequestParam("pass") String password) {
         // Retrieve the list of user names from the database
-        String userListString = userSql.read()[0];
+        String userListString = UserSql.read()[0];
         List<String> userList = new ArrayList<String>(Arrays.asList(userListString.split("  ")));
         if (userList.contains(name)) {
             model.addAttribute("result", "user exists");
@@ -39,7 +39,7 @@ public class SignUp {
             userList.add(name);
             password = PasswordUtils.hashPassword(password);
             // Write the updated list of user names to the database
-            userSql.write(name, password);
+            UserSql.write(name, password);
 
         }
 

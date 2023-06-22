@@ -19,7 +19,7 @@ public class Music {
     @GetMapping("/playlists/")
     @ResponseBody
     public Map<String, String> test() {
-        String data = "\"       \"";
+        String data = "";
         Map<String, String> response = new HashMap<>();
         response.put("data", data);
         return response;
