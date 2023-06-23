@@ -22,7 +22,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <a href="../newList" class="btn btn-primary">New Playlist</a>
+                <a href="../newplaylist" class="btn btn-primary">New Playlist</a>
             </div>
             <div class="col-md-6 text-end">
                 <p th:text="${name}"></p>
@@ -106,25 +106,7 @@
         var playlist = [[${ playlist }]];
         var user = [[${ name }]]
         /////////////////////////////////////////////////////////////////////////////////////
-        const url = `/user/${user}/data`;
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                const encryptedData = data.data;
-                // do something with the encrypted data, e.g. display it on the page
-                const str = encryptedData;
-                const arr = str.split("||");
-                console.log(arr); // Output: ["slime", "tracks"]
-                const select = document.getElementById("playlist-select");
-                for (const item of arr) {
-                    const option = document.createElement("option");
-                    option.value = item;
-                    option.text = item;
-                    select.appendChild(option);
-                }
-            })
-            .catch(error => console.error(error));
     </script>
     <script src="../music/setup/styling.js"></script>
     <script src="../music/setup/user.js"></script>

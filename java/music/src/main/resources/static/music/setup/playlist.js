@@ -42,3 +42,22 @@ $.ajax({
     }
   },
 });}
+const url = `/user/${user}/data`;
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        const encryptedData = data.data;
+        // do something with the encrypted data, e.g. display it on the page
+        const str = encryptedData;
+        const arr = str.split("||");
+        console.log(arr); // Output: ["slime", "tracks"]
+        const select = document.getElementById("playlist-select");
+        for (const item of arr) {
+            const option = document.createElement("option");
+            option.value = item;
+            option.text = item;
+            select.appendChild(option);
+        }
+    })
+    .catch(error => console.error(error));

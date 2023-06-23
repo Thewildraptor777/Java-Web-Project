@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="user/style.css"/>
+    <link rel="stylesheet" href="user/style.css" />
     <link rel="icon" href="music/icons/icon.png" />
 
 
@@ -22,10 +22,11 @@
 </body>
 
 <script>
-     // Check if a key exists in local storage
-     if (localStorage.getItem('user') !== null) {
+    // Check if a key exists in local storage
+    if (localStorage.getItem('user') !== null) {
         // The key exists in local storage
-        window.location.replace("user/"+localStorage.getItem('user'))
+        window.location.replace("user/" + localStorage.getItem('user'))
     }
 </script>
+
 </html>

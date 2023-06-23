@@ -8,7 +8,117 @@
 </head>
 
 <body>
+    <button onclick="openaudio()">Open Audio Window</button>
+    <button onclick="openimage()">Open Image Window</button>
 
+
+    <form id="form">
+        <label>Playlist Name:</label>
+        <input name="playlist" type="text" required>
+        <input type="submit" id="submit-btn">
+        <hr>
+        <div class="song">
+            <label>Song link:</label>
+            <input name="link" type="text" required>
+            <label>Image link:</label>
+            <input name="image" type="text" required>
+            <label>Title:</label>
+            <input name="title" type="text" required>
+            <label>Artist:</label>
+            <input name="artist" type="text" required>
+            <span class="remove" onclick="remove(this)">x</span>
+            <hr>
+        </div>
+    </form>
+    <p id="add">add</p>
+    <embed>
 </body>
+
+<script>
+    let array = [];
+    let size = 0;
+
+    document.getElementById("add").addEventListener('click', () => {
+        const template = document.querySelector(".song");
+        const clone = template.cloneNode(true);
+        size++;
+        clone.setAttribute("id", size);
+        clone.querySelectorAll("input").forEach(input => input.value = ""); // clear the input fields
+        document.getElementById("form").appendChild(clone);
+    });
+
+    function remove(element) {
+        const songElement = element.parentNode;
+        const index = array.findIndex(song => song.includes(songElement.id));
+        array.splice(index, 4);
+        songElement.remove();
+    }
+
+    document.getElementById("form").addEventListener('submit', (event) => {
+        event.preventDefault(); // prevent the default form submission behavior
+        const formData = new FormData(event.target); // create a new FormData object with the form data
+        for (let [name, value] of formData) {
+            let song = value;
+            array.push(song);
+        }
+        let finalArray = createArraysFromObjects(array);
+        console.log(finalArray)
+        // make an AJAX request to the server
+        const xhr = new XMLHttpRequest();
+        const url = 'http://localhost:8080/playlistsubmit'; // replace with your server URL
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText); // do something with the response
+            }
+            else {
+                console.error(xhr.statusText);
+            }
+        };
+        xhr.onerror = function () {
+            console.error(xhr.statusText);
+        };
+        xhr.send(JSON.stringify(finalArray));
+        document.getElementById("form").innerHTML = ` <label>Playlist Name:</label>
+        <input name="playlist" type="text" required>
+        <input type="submit" id="submit-btn">
+                <hr>
+        <div class="song">
+            <label>Song link:</label>
+            <input name="link" type="text" required>
+            <label>Image link:</label>
+            <input name="image" type="text" required>
+            <label>Title:</label>
+            <input name="title" type="text" required>
+            <label>Artist:</label>
+            <input name="artist" type="text" required>
+            <span class="remove" onclick="remove(this)">x</span>
+            <hr>
+        </div>`
+        list = []
+        result = []
+        array = []
+        window.location.replace("/")
+    });
+
+    function createArraysFromObjects(array) {
+        let list = []
+        list.push(array[0])
+        let result = [list];
+        for (let i = 1; i < array.length; i += 4) {
+            result.push(array.slice(i, i + 4));
+        }
+        return result;
+    }
+</script>
+<script> function openaudio() {
+        // Open a new window with the specified URL, size, and features
+        window.open("http://localhost:8080/newaudio", "My Window", "width=400,height=300");
+    }</script>
+<script> function openimage() {
+        // Open a new window with the specified URL, size, and features
+        window.open("http://localhost:8080/newimage", "My Window", "width=400,height=300");
+    }</script>
 
 </html>
