@@ -35,7 +35,8 @@ public class playlist {
         try {
             // Check file type
             String fileType = file.getContentType();
-            if (!fileType.equals("audio/mpeg") && !fileType.equals("audio/wav") && !fileType.equals("audio/ogg")) {
+            if (fileType != null && !fileType.equals("audio/mpeg") && !fileType.equals("audio/wav")
+                    && !fileType.equals("audio/ogg")) {
                 return "Only audio files with extensions .mp3, .wav, or .ogg are allowed!";
             }
 
@@ -59,7 +60,7 @@ public class playlist {
         try {
             // Check file type
             String fileType = file.getContentType();
-            if (!fileType.equals("image/jpeg") && !fileType.equals("image/png")) {
+            if (fileType != null && !fileType.equals("image/jpeg") && !fileType.equals("image/png")) {
                 return "Only image files with extensions .jpg, .jpeg, .png, or .gif are allowed!";
             }
 

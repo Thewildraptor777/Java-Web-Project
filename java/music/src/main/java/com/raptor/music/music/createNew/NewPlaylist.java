@@ -1,4 +1,6 @@
-package com.raptor.music;
+package com.raptor.music.music.createNew;
+
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class NewPlaylist {
     @GetMapping("/newplaylist")
     public String page() {
-        return "newplaylist.html";
+        return "newMusic/newplaylist.html";
     }
 
     @PostMapping("/playlistsubmit")

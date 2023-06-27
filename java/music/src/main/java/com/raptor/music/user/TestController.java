@@ -24,8 +24,9 @@ public class TestController {
         int userIndex = userList.indexOf(name);
         if (userIndex != -1 && PasswordUtils.checkPassword(password, passwordList.get(userIndex))) {
             model.addAttribute("message", "Login successful");
+            model.addAttribute("check", true);
         } else {
-            model.addAttribute("message", "Incorrect username or password");
+            model.addAttribute("message", "Incorrect username or password/test");
         }
         model.addAttribute("test", name);
         return "user/test.html";

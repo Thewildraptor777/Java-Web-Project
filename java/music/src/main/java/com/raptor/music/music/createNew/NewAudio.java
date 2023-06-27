@@ -1,4 +1,6 @@
-package com.raptor.music;
+package com.raptor.music.music.createNew;
+
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,13 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NewAudio {
     @GetMapping("/newaudio")
     public String audio() {
-        return "newaudio.html";
+        return "newMusic/newaudio.html";
 
     }
 
     @GetMapping("/newimage")
     public String image() {
-        return "newimage.html";
+        return "newMusic/newimage.html";
 
     }
 }
