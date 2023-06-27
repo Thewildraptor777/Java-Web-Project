@@ -1,1 +1,1 @@
-Java version of my site that uses a database
+Java version of my site that uses a database to display music and has a userbase.
