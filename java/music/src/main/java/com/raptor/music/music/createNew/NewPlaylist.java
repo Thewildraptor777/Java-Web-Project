@@ -1,9 +1,9 @@
 package com.raptor.music.music.createNew;
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import com.raptor.music.user.UserSql;
 
 @Controller
 public class NewPlaylist {
@@ -28,7 +30,11 @@ public class NewPlaylist {
         write(playlist);
         insert(finalArray, playlist);
         //
+        String newlist = finalArray.get(0).get(0);
+        System.out.println(newlist);
 
+        System.out.println(finalArray.get(finalArray.size() - 1).get(0));
+        writeNew(finalArray.get(finalArray.size() - 1).get(0), newlist);
         // do something with the array
         return ResponseEntity.ok("Success");
     }
@@ -79,6 +85,56 @@ public class NewPlaylist {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
+        }
+    }
+
+    public static String update() {
+        return UserSql.read()[2];
+
+    }
+
+    public static void main(String[] args) {
+        writeNew("dev", "test");
+    }
+
+    public static void writeNew(String enteredUser, String enteredPlaylist) {
+        try {
+            // Load the MySQL JDBC driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Connect to the database
+            String url = "jdbc:mysql://localhost:3306/users";
+            String user = "Tyler";
+            String password = "Blackrobin7";
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            // Retrieve the playlists column of the row(s) that match a specified username
+            String username = enteredUser;
+            String sqlSelect = "SELECT playlists FROM data WHERE username = ?";
+            PreparedStatement stmtSelect = conn.prepareStatement(sqlSelect);
+            stmtSelect.setString(1, username);
+            ResultSet rs = stmtSelect.executeQuery();
+
+            // Update the playlists column with a new value
+            String playlists = "";
+            while (rs.next()) {
+                playlists = rs.getString("playlists");
+            }
+            playlists += "||" + enteredPlaylist;
+            String sqlUpdate = "UPDATE data SET playlists = ? WHERE username = ?";
+            PreparedStatement stmtUpdate = conn.prepareStatement(sqlUpdate);
+            stmtUpdate.setString(1, playlists);
+            stmtUpdate.setString(2, username);
+            int rowsAffected = stmtUpdate.executeUpdate();
+            System.out.println(rowsAffected + " row(s) updated");
+
+            // Close the resources
+            rs.close();
+            stmtSelect.close();
+            stmtUpdate.close();
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

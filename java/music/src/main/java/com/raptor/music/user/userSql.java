@@ -18,7 +18,7 @@ public class UserSql {
          }
          conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/users", "Tyler", "Blackrobin7");
          stmt = (Statement) conn.createStatement();
-         String query = "INSERT INTO data " + "VALUES (NULL, '" + user + "','" + password + "', 'tbd')";
+         String query = "INSERT INTO data " + "VALUES (NULL, '" + user + "','" + password + "', 'select playlist')";
          stmt.executeUpdate(query);
          System.out.println(user + " Added");
 
@@ -45,6 +45,8 @@ public class UserSql {
    public static String[] read() {
       String userdata = "";
       String passwordData = "";
+      String listsData = "";
+
       try {
          // create our mysql database connection
          String myDriver = "com.mysql.cj.jdbc.Driver";
@@ -66,16 +68,19 @@ public class UserSql {
          while (rs.next()) {
             String username = rs.getString("username");
             String password = rs.getString("password");
+            String lists = rs.getString("playlists");
             // print the results
             userdata = userdata + username + "  ";
             passwordData = passwordData + password + "  ";
+            listsData = listsData + lists + "  ";
+
          }
          st.close();
       } catch (Exception e) {
          System.err.println("Got an exception! ");
          System.err.println(e.getMessage());
       }
-      String[] finalArray = { userdata, passwordData };
+      String[] finalArray = { userdata, passwordData, listsData };
 
       return finalArray;
    }

@@ -18,11 +18,10 @@
         <div class="row">
             <div class="col-md-2">
                 <select class="form-select" id="playlist-select" aria-label="Select playlist">
-                    <option selected>Select Playlist</option>
                 </select>
             </div>
             <div class="col-md-4">
-                <a id="link" href="../newplaylist" class="btn btn-primary">New Playlist</a>
+                <a id="link" href="../newplaylist?num=0" class="btn btn-primary">New Playlist</a>
             </div>
             <div class="col-md-6 text-end">
                 <p th:text="${name}"></p>
@@ -112,11 +111,11 @@
     <script src="../music/setup/user.js"></script>
     <script src="../music/setup/local.js"></script>
     <script src="../music/setup/playlist.js"></script>
-<script>
+    <script>
 
-console.log(window.location.pathname.substring(6,window.location.pathname.length)
-)
-</script>
+        console.log(window.location.pathname.substring(6, window.location.pathname.length)
+        )
+    </script>
 </body>
 
 </html>

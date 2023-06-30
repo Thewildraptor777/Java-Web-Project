@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <button onclick="openaudio()">Open Audio Window</button>
-    <button onclick="openimage()">Open Image Window</button>
+    <button onclick="openaudio()">Open audio link window</button>
+    <button onclick="openimage()">Open image link window</button>
 
 
     <form id="form">
@@ -30,11 +30,22 @@
             <hr>
         </div>
     </form>
-    <p id="add">add</p>
-    <embed>
+    <p id="add">add row</p>
 </body>
 
 <script>
+    // Get the URL of the current page
+    var url = window.location.href;
+
+    // Get the value of the parameter named "param" from the URL
+    var paramValue = (new URL(url)).searchParams.get("num");
+
+    // Print the value of the parameter to the console
+    if (paramValue == 0) {
+        window.location.replace(window.location.pathname + "?user=" + localStorage.getItem('user'))
+    }
+    var username = (new URL(url)).searchParams.get("user");
+
     let array = [];
     let size = 0;
 
@@ -61,6 +72,7 @@
             let song = value;
             array.push(song);
         }
+        array.push(username)
         let finalArray = createArraysFromObjects(array);
         console.log(finalArray)
         // make an AJAX request to the server
