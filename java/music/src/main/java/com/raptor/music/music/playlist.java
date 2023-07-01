@@ -47,7 +47,7 @@ public class playlist {
                             + file.getOriginalFilename());
             Files.write(path, bytes);
 
-            return "http://localhost:8080/data/music/" + file.getOriginalFilename();
+            return "http://localhost:8443/data/music/" + file.getOriginalFilename();
         } catch (IOException e) {
             e.printStackTrace();
             return "File upload failed!";
@@ -71,7 +71,7 @@ public class playlist {
                             + file.getOriginalFilename());
             Files.write(path, bytes);
 
-            return "http://localhost:8080/data/images/" + file.getOriginalFilename();
+            return "http://localhost:8443/data/images/" + file.getOriginalFilename();
         } catch (IOException e) {
             e.printStackTrace();
             return "File upload failed!";

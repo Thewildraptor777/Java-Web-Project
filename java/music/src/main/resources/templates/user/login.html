@@ -48,6 +48,8 @@
         test = document.createElement('p')
         test.innerHTML = "try again"
         document.body.append(test)
+    }else{
+        check=true
     }
     // Check if a key exists in local storage
     if (localStorage.getItem('user') !== null && check == true) {
